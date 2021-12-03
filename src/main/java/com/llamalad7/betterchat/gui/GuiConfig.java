@@ -66,6 +66,7 @@ public class GuiConfig extends GuiScreen {
         this.mc.gameSettings.chatWidth = ((float) widthSlider.getValueInt()-40)/280;
 
         AccessorGuiIngameForge guiIngameForge = (AccessorGuiIngameForge) Minecraft.getMinecraft().ingameGUI;
+
         RenderGameOverlayEvent.Chat event = new RenderGameOverlayEvent.Chat(guiIngameForge.getEventParent(), 0, 0);
         if (MinecraftForge.EVENT_BUS.post(event)) return;
 
