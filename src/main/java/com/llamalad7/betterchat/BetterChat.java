@@ -15,7 +15,7 @@ public class BetterChat {
     private static ChatSettings settings;
 
     @EventHandler
-    public void preinit(FMLPreInitializationEvent event) {
+    public void preInit(FMLPreInitializationEvent event) {
         boolean firstRun = false;
         if (!event.getSuggestedConfigurationFile().exists()) {
             firstRun = true;

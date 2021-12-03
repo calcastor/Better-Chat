@@ -66,12 +66,15 @@ public class GuiConfig extends GuiScreen {
         this.mc.gameSettings.chatWidth = ((float) widthSlider.getValueInt()-40)/280;
 
         AccessorGuiIngameForge guiIngameForge = (AccessorGuiIngameForge) Minecraft.getMinecraft().ingameGUI;
-
         RenderGameOverlayEvent.Chat event = new RenderGameOverlayEvent.Chat(guiIngameForge.getEventParent(), 0, 0);
         if (MinecraftForge.EVENT_BUS.post(event)) return;
 
         GlStateManager.pushMatrix();
+        //#if MC==10809
         GlStateManager.translate((float)event.posX, (float)event.posY, 0.0F);
+        //#else
+        //$$ GlStateManager.translate((float)event.getPosX(), (float)event.getPosY(), 0.0F);
+        //#endif
         drawExampleChat();
         GlStateManager.popMatrix();
 
